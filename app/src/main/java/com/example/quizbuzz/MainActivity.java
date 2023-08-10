@@ -102,10 +102,10 @@ public class MainActivity extends AppCompatActivity {
                       if(!holder.option4.getText().toString().equals(list.get(position).getCorrect_answer()))
                           holder.option4.setTextColor(Color.parseColor("#ffcccb"));
                   }
-                   Intent intent = new Intent(MainActivity.this,MainActivity.class);
-
-                  startActivity(intent);
-                  finish();
+//                   Intent intent = new Intent(MainActivity.this,MainActivity.class);
+//
+//                  startActivity(intent);
+//                  finish();
 
 
                }

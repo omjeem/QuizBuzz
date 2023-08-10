@@ -1,5 +1,11 @@
 package com.example.quizbuzz.Models;
 
+import android.os.Build;
+import android.text.Html;
+import android.text.Spanned;
+
+import androidx.core.text.HtmlCompat;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -45,7 +51,13 @@ public class Quiz implements Serializable {
     }
 
     public String getQuestion() {
-        return question;
+        Spanned decodedQuestion;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            decodedQuestion = Html.fromHtml(question, HtmlCompat.FROM_HTML_MODE_LEGACY);
+        else
+            decodedQuestion = HtmlCompat.fromHtml(question,HtmlCompat.FROM_HTML_MODE_LEGACY);
+
+        return decodedQuestion.toString();
     }
 
     public void setQuestion(String question) {
